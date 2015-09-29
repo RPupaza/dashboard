@@ -22,10 +22,10 @@
     <!-- ================== END BASE CSS STYLE ================== -->
 
     <!-- ================== BEGIN PAGE LEVEL CSS STYLE ================== -->
-    <link href="assets/plugins/jquery-jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" />
-    <link href="assets/plugins/bootstrap-calendar/css/bootstrap_calendar.css" rel="stylesheet" />
-    <link href="assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
-    <link href="assets/plugins/morris/morris.css" rel="stylesheet" />
+    <link href="/assets/plugins/jquery-jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" />
+    <link href="/assets/plugins/bootstrap-calendar/css/bootstrap_calendar.css" rel="stylesheet" />
+    <link href="/assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
+    <link href="/assets/plugins/morris/morris.css" rel="stylesheet" />
     <!-- ================== END PAGE LEVEL CSS STYLE ================== -->
 
     @yield('head-tag')

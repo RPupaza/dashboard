@@ -92,11 +92,13 @@ class HomeController extends BaseController {
             $sold_codes = DB::table('codes')
                 ->where('deal', '=', $deal->id)
                 ->where('available', '=', 0)
+                ->select('updated_at')
                 ->get();
 
             $remained_codes = DB::table('codes')
                 ->where('deal', '=', $deal->id)
                 ->where('available', '=', 1)
+                ->select('updated_at')
                 ->get();
 
             $ccomments = DB::table('comments')
@@ -126,6 +128,8 @@ class HomeController extends BaseController {
             'codes' => $total_codes,
         );
 
+        //dd($s_coupons);
+
 
 //dd($deals_details);
 
@@ -133,6 +137,7 @@ class HomeController extends BaseController {
             ->with('user', $user_details)
             ->with('notifications', $notifications)
             ->with('count_notification',$count_notification)
+            ->with('s_coupon_sold', $sold_codes)
             ->with('visits', $count_visits)
             ->with('coupons_status', $coupons_status)
             ->with('deals_details', $deals_details)

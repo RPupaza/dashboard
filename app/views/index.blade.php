@@ -16,6 +16,7 @@
         <!-- end breadcrumb -->
         <!-- begin page-header -->
         <h1 class="page-header">Dashboard <small>manage your bussiness !</small></h1>
+       {{-- <div class="pace-activity1"></div>--}}
         <!-- end page-header -->
         <!-- begin row -->
         <div class="row">
@@ -242,4 +243,63 @@
         <!-- end row -->
     </div>
     <!-- end #content -->
+
+    <script>
+
+        var handleVisitorsLineChart = function() {
+var info =  @foreach($s_coupon_sold as $sold)
+                {{$sold['updated_at']}}
+                {x: '', y: 1},
+                @endforeach
+                ;
+var green = '#0D888B';
+            var greenLight = '#00ACAC';
+            var blue = '#3273B1';
+            var blueLight = '#348FE2';
+            var blackTransparent = 'rgba(0,0,0,0.6)';
+            var whiteTransparent = 'rgba(255,255,255,0.4)';
+
+            Morris.Line({
+                element: 'visitors-line-chart',
+                data: [
+
+                ],
+                xkey: 'x',
+                ykeys: 'y',
+                xLabelFormat: function(x) {
+                    x = getMonthName(x.getMonth());
+                    return x.toString();
+                },
+                labels: ['Coupons Sold', 'Coupons Available'],
+                lineColors: [green, blue],
+                pointFillColors: [greenLight, blueLight],
+                lineWidth: '2px',
+                pointStrokeColors: [blackTransparent, blackTransparent],
+                resize: true,
+                gridTextFamily: 'Open Sans',
+                gridTextColor: whiteTransparent,
+                gridTextWeight: 'normal',
+                gridTextSize: '11px',
+                gridLineColor: 'rgba(0,0,0,0.5)',
+                hideHover: 'auto',
+            });
+        };
+
+        var handleVisitorsDonutChart = function() {
+            var green = '#00acac';
+            var blue = '#348fe2';
+            Morris.Donut({
+                element: 'visitors-donut-chart',
+                data: [
+                    {label: "New Visitors", value: 900},
+                    {label: "Return Visitors", value: 1200}
+                ],
+                colors: [green, blue],
+                labelFamily: 'Open Sans',
+                labelColor: 'rgba(255,255,255,0.4)',
+                labelTextSize: '12px',
+                backgroundColor: '#242a30'
+            });
+        };
+    </script>
 @stop
